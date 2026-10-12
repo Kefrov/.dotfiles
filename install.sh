@@ -24,6 +24,12 @@ if ! command -v code &> /dev/null; then
     rm -f /tmp/packages.microsoft.gpg
 fi
 
+# Fastfetch PPA
+if ! command -v fastfetch &> /dev/null; then
+    echo " -> Adding Fastfetch PPA..."
+    sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch
+fi
+
 sudo apt update
 
 # 3. Main APT Packages
@@ -35,6 +41,7 @@ APT_APPS=(
     fastfetch
     vim-gtk3
     vlc
+    gnome-clocks
     pdfarranger
     syncplay
     build-essential
