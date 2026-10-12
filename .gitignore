@@ -1,0 +1,31 @@
+# AI Generated .gitignore yay!
+
+# OS and Editor trash
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+*.bak
+
+# Shell history
+*_history
+.bash_history
+.zsh_history
+.python_history
+
+# Secrets, keys, and local overrides
+.ssh/
+*.pem
+*.key
+.env
+*.local
+
+# Application-specific junk (Neovim & Xournal++)
+lazy-lock.json
+*.log
+*.xopp.bak
+*.autosave
+
+# Caches
+.cache/
