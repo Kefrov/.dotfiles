@@ -35,5 +35,6 @@ Assuming we start from a fresh install of pop-os.
 4. Stow gaming
 
     ```shell
-    stow vim wezterm xournal zsh
+    stow vim wezterm zsh
+    stow -t ~/.var/app xournal
     ```
