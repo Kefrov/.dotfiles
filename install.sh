@@ -8,11 +8,11 @@ echo "    Pop!_OS Full System Setup & Install   "
 echo "=========================================="
 
 # 1. Update and Upgrade System
-echo "[1/8] Updating package lists..."
+echo "[1/7] Updating package lists..."
 sudo apt update && sudo apt upgrade -y
 
 # 2. Add Third-Party Repositories (VS Code)
-echo "[2/8] Setting up external repositories..."
+echo "[2/7] Setting up external repositories..."
 sudo apt install -y wget gpg apt-transport-https software-properties-common curl
 
 # VS Code Repository
@@ -33,7 +33,7 @@ fi
 sudo apt update
 
 # 3. Main APT Packages
-echo "[3/8] Installing core APT packages..."
+echo "[3/7] Installing core APT packages..."
 APT_APPS=(
     stow
     zsh
@@ -58,18 +58,18 @@ sudo apt install -y "${APT_APPS[@]}"
 
 # 4. Install Free Download Manager (.deb)
 if ! command -v freedownloadmanager &> /dev/null; then
-    echo "[4/8] Installing Free Download Manager..."
+    echo "[4/7] Installing Free Download Manager..."
     FDM_DEB="/tmp/freedownloadmanager.deb"
     wget -O "$FDM_DEB" "https://dn3.freedownloadmanager.org/6/latest/freedownloadmanager.deb"
     sudo apt install -y "$FDM_DEB"
     rm -f "$FDM_DEB"
 else
-    echo "[4/8] Free Download Manager already installed, skipping."
+    echo "[4/7] Free Download Manager already installed, skipping."
 fi
 
 # 5. Install OpenTabletDriver (from official GitHub releases .deb)
 if ! command -v otd &> /dev/null; then
-    echo "[5/8] Installing OpenTabletDriver..."
+    echo "[5/7] Installing OpenTabletDriver..."
     OTD_DEB="/tmp/opentabletdriver.deb"
     curl -s https://api.github.com/repos/OpenTabletDriver/OpenTabletDriver/releases/latest \
     | grep "browser_download_url.*_x64.deb" \
@@ -78,27 +78,17 @@ if ! command -v otd &> /dev/null; then
     sudo apt install -y "$OTD_DEB" || true
     rm -f "$OTD_DEB"
 else
-    echo "[5/8] OpenTabletDriver already installed, skipping."
+    echo "[5/7] OpenTabletDriver already installed, skipping."
 fi
 
-# 6. Install Pear Desktop (YouTube Music Client)
-echo "[6/8] Installing Pear Desktop..."
-PEAR_DEB="/tmp/pear-desktop.deb"
-curl -s https://api.github.com/repos/pear-devs/pear-desktop/releases/latest \
-| grep "browser_download_url.*deb" \
-| cut -d '"' -f 4 \
-| wget -qi - -O "$PEAR_DEB"
-sudo apt install -y "$PEAR_DEB" || true
-rm -f "$PEAR_DEB"
-
-# 7. Install Snapd & PhotoCraft
-echo "[7/8] Installing Snap and PhotoCraft..."
+# 6. Install Snapd & PhotoCraft
+echo "[6/7] Installing Snap and PhotoCraft..."
 sudo apt install -y snapd
 sudo systemctl enable --now snapd.socket
 sudo snap install photocraft
 
-# 8. Install Flatpak Apps
-echo "[8/8] Setting up Flatpak apps..."
+# 7. Install Flatpak Apps
+echo "[7/7] Setting up Flatpak apps..."
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 FLATPAK_APPS=(
