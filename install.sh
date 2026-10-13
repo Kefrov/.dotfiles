@@ -38,6 +38,7 @@ APT_APPS=(
     stow
     zsh
     btop
+    tree
     fastfetch
     vim-gtk3
     vlc
