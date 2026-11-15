@@ -1,31 +1,17 @@
-# AI Generated .gitignore yay!
+# Exclude everything by default
+*
 
-# OS and Editor trash
-.DS_Store
-Thumbs.db
-*.swp
-*.swo
-*~
-*.bak
+# Files/Folders to include
+!.gitignore
+!install.sh
+!README.md
 
-# Shell history
-*_history
-.bash_history
-.zsh_history
-.python_history
-
-# Secrets, keys, and local overrides
-.ssh/
-*.pem
-*.key
-.env
-*.local
-
-# Application-specific junk (Neovim & Xournal++)
-lazy-lock.json
-*.log
-*.xopp.bak
-*.autosave
-
-# Caches
-.cache/
+!*/
+!vim/
+!vim/**
+!wezterm/
+!wezterm/**
+!zsh/
+!zsh/**
+!xournal/com.github.xournalpp.xournalpp/config/xournalpp
+!xournal/com.github.xournalpp.xournalpp/config/xournalpp/**
