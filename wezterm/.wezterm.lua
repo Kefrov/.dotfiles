@@ -27,7 +27,7 @@ return {
     line_height = 1.0,
     
     -- window style
-    window_decorations = "RESIZE",
+    window_decorations = "NONE",
     enable_tab_bar = true,
     use_fancy_tab_bar = false,
     show_new_tab_button_in_tab_bar = false,
